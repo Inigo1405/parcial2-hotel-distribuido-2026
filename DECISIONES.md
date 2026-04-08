@@ -21,14 +21,34 @@ sin el routing key correcto se pirde el mensaje y el avalibity-servicenunca reci
 ---
 
 ### B2 — Manejo de error en publish
+**Qué encontré:**
+
+**Cómo lo arreglé:**
+
+**Por qué esto era un problema:**
 
 ---
 
 ### B3 — Ack manual
+**Qué encontré:**
+En avalability-service usaba "autotrack=True" etro provoca que rabbitmq reciba el mesnaje como entrgado inmediatamente despues de enviarlo al consumidor sin esperar el callback terminara de procesarlo. 
+
+**Cómo lo arreglé:**
+Se cambio el "uto_ack=True" a "auto_ack=False" en en main.py de availability-service.
+Al final del bloque del bloque del try se llama a ch.basic_ack(delivery_tag=method.delivery_tag)
+En el bloque del except se llama a ch.basic_nack(delivery_tag=method.delivery_tag, requeue=True) para devolver el mensaje a la cola e intentarlo despues
+
+**Por qué esto era un problema:**
+SIn un acuse de recibo manuel cualquier fallo podira causar la perdida definitiva de la solicitud de la reserva. El cliente recibia un "202 Accepted" pero la reserva nunca se procesaba, con el ack manual se garantiza que solamente se considera cuando el trabajo esta realemnte hecho
 
 ---
 
 ### B6 — Credenciales en env vars
+**Qué encontré:**
+
+**Cómo lo arreglé:**
+
+**Por qué esto era un problema:**
 
 ---
 
