@@ -8,10 +8,15 @@
 
 ### B1 — Routing key
 **Qué encontré:**
+El problema era que los dos servicios no estaban coordinados. El booking-api publicaba eventos al exchange hotel con el routing key "ooking.created" pero availability-service pedia "booking.requested". AL no coincidir rabbitmq  no enrutaba los mensaje hacia el consumidor.
+Ademas aunque el routig key lo cambie  los mensajes seguian sin llegar porque booking-api cerraba la conexion de manera inmediata lo que el broker no tenia tiempo para procesar el enrutameinto
 
 **Cómo lo arreglé:**
+Cambie el routing key en rabbitmq.py en el servicio de booking-api de "booking.create" a "booking.requested"
+Agregue un pequeño await de 0.1 justo después de la publicacion para mantener la conexion abierta el tiempo suficiente para que rabbitmq termine de enrutar el mensaje hacia la cola
 
 **Por qué esto era un problema:**
+sin el routing key correcto se pirde el mensaje y el avalibity-servicenunca recibia el evento rompiendo el flujo
 
 ---
 
