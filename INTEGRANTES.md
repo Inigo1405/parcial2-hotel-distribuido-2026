@@ -26,7 +26,7 @@
 |---|---|---|
 | B1 — routing key en booking-api |ManuelRuizJ| |
 | B2 — manejo de error en publish | | |
-| B3 — auto_ack en availability-service | | |
+| B3 — auto_ack en availability-service |ManuelRuizJ| |
 | B4 — overlap de fechas | | |
 | B5 — race condition con `with_for_update()` | | |
 | B6 — credenciales hardcodeadas | | |
