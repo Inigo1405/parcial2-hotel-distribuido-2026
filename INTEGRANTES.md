@@ -4,10 +4,10 @@
 
 ## Integrante 1
 
-- **Nombre completo:**
-- **Matrícula:**
-- **Correo:**
-- **Usuario de Git que va a usar para sus commits:**
+- **Nombre completo:** Iñigo Quintana Delgadillo
+- **Matrícula:** 187397
+- **Correo:** 187397@iberopuebla.mx
+- **Usuario de Git que va a usar para sus commits:** Inigo1405
 
 ## Integrante 2
 
