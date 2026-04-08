@@ -11,10 +11,10 @@
 
 ## Integrante 2
 
-- **Nombre completo:**
-- **Matrícula:**
-- **Correo:**
-- **Usuario de Git que va a usar para sus commits:**
+- **Nombre completo: Jesus Manuel Ruiz Fuentes**
+- **Matrícula: 195116-8**
+- **Correo: jeshua0423@gmail.com**
+- **Usuario de Git que va a usar para sus commits: ManuelRuizJ**
 
 ---
 
