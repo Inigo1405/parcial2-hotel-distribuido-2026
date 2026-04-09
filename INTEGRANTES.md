@@ -31,8 +31,8 @@
 | B5 — race condition con `with_for_update()` | | |
 | B6 — credenciales hardcodeadas | | |
 | B7 — idempotencia en payment-service | | |
-| `notification-service` (TODOs) | | |
-| `notification-service` en docker-compose | | |
+| `notification-service` (TODOs) |ManuelRuizJ| |
+| `notification-service` en docker-compose |ManuelRuizJ| |
 | Capturas de RabbitMQ | | |
 | Logs end-to-end | | |
 | `DECISIONES.md` | | |
