@@ -25,11 +25,11 @@
 | Bug / Tarea | Responsable principal | Apoyo |
 |---|---|---|
 | B1 — routing key en booking-api |ManuelRuizJ| |
-| B2 — manejo de error en publish | | |
+| B2 — manejo de error en publish |InigoQD| |
 | B3 — auto_ack en availability-service |ManuelRuizJ| |
-| B4 — overlap de fechas | | |
+| B4 — overlap de fechas |InigoQD| |
 | B5 — race condition con `with_for_update()` | | |
-| B6 — credenciales hardcodeadas | | |
+| B6 — credenciales hardcodeadas |InigoQD| |
 | B7 — idempotencia en payment-service | | |
 | `notification-service` (TODOs) |ManuelRuizJ| |
 | `notification-service` en docker-compose |ManuelRuizJ| |
