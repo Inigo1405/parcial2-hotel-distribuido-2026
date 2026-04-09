@@ -74,9 +74,9 @@ services:
     env_file: .env
     restart: on-failure
     depends_on:
-      rabbitmq:
-        condition: service_healthy
       postgres:
+        condition: service_healthy
+      rabbitmq:
         condition: service_healthy
       
 volumes:
