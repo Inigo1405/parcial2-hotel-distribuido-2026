@@ -40,22 +40,19 @@ def main():
     result = channel.queue_declare(queue="notifications", durable=False)
     channel.queue_bind(exchange="hotel", queue=result.method.queue, routing_key="payment.completed")
     channel.queue_bind(exchange="hotel", queue=result.method.queue, routing_key="payment.failed")
-    logger.info("notification-service TODO 1 listo, exchange y bindings listos")
-    logger.info("notification-service: callback definido (TODO 2). Pendiente TODO 3 (consumo).")
+    logger.info("notification-service: exchange y bindings listos")
 
-    logger.info("notification-service iniciado, pero los TODOs no están resueltos todavia")
-    # Mientras los TODOs no se resuelvan, este servicio no consume nada.
-    # Reemplaza este loop infinito con tu lógica.
-    import time
-    while True:
-        time.sleep(60)
+    # TODO 3: iniciar el consumer con channel.basic_consume(...) usando ack
+    # manual y luego channel.start_consuming().
+    channel.basic_consume(queue=result.method.queue, on_message_callback=callback, auto_ack=False)
+    logger.info("notification.service: esperando mensajes...")
+    channel.start_consuming()
 
 
     # TODO 2: implementar el callback que reciba (ch, method, properties, body),
     # parsee el JSON, y loggee con el formato exacto:
     #   [NOTIFICATION] booking_id=<id> event=<EVENT> guest=<name> channel=email status=SENT
     # No olvides hacer ack manual al final del callback (ch.basic_ack).
-
 def callback(ch, method, properties, body):
     try:
         payload = json.loads(body)
@@ -63,16 +60,11 @@ def callback(ch, method, properties, body):
         guest = payload.get("guest")
         event = payload.get("event")
         
-        log_msg = (
-            f"[NOTIFICATION] booking_id={booking_id}"
-            f"event={event} guest={guest} channel=email status=SENT"
-        )
+        log_msg = f"[NOTIFICATION] booking_id={booking_id} event={event} guest={guest} channel=email status=SENT"
         logger.info(log_msg)
     except Exception as e:
         logger.error(f"Error en el callback: {e}")
 
-    # TODO 3: iniciar el consumer con channel.basic_consume(...) usando ack
-    # manual y luego channel.start_consuming().
 
 
 

@@ -35,11 +35,20 @@ sin el routing key correcto se pirde el mensaje y el avalibity-servicenunca reci
 ## notification-service completado
 
 **Qué TODOs había:**
+TODO 1: Declarar el exchange hotel de tipo topic, crear la cola llamada notificaciones y enlazar a routing keys payment .completed y .failed
+TODO 2: implementar el callback que recibira el mensaje y xtraera los campos booking_id guest y event lo que generara un log estructurado
+TODO 3: Iniciar el consumidor usando basic_consume con auto_ack=False y luego start_consuming(), asegurando el recibo manual
 
 **Cómo los implementé:**
+TODO 1: En la función main() se delaraa el exchange hotel, luego se declara la cola notifications, finalmente de enlaza la cola 2 veces una con payment.completed y otra con payment.failed. Tambien se creo el docker-compose.yml copiando el patron de availability-servic
+TODO 2: SE define la funcion callback y se analiza el JSON del cuerpo con .get se extrae booking_id, guest y event, se construyo el log segun las intruciones 
+TODO 3: En el main() despues de bidings e configura el consumidor, luego se llama a channel.start_consuming() para que el servicio quedde a la espera de mensaje
 
 **Decisiones de diseño que tomé:**
-
+Se uso el auto_ack=False y confirmo manualmente  solo despues de haber generado el log exitosamente. En caso de error se reencola l mensaje.
+Cola no durable, se siguio el critero de los otros servicios ya que se requiere persisencia al reiniciar rabbitmq las colas se recrean
+Uso de pika sincronico, se esocgio la misma librearia sincronica que avilitiby-service por simplificidad
+Manejo de errores genericos con el callback captura cualquier excepcion, loguea el error y reencola el mensjae 
 ---
 
 ## Bugs arreglados (Tier 2)
