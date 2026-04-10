@@ -22,7 +22,7 @@ def find_available_room(room_type: str, check_in: date, check_out: date) -> Room
     Devuelve la primera habitación disponible o None si ninguna lo está.
     """
     with SessionLocal() as session:
-        candidates = session.query(Room).filter(Room.room_type == room_type).all()
+        candidates = session.query(Room).filter(Room.room_type == room_type).with_for_update(nowait=False).all()
         for room in candidates:
             # BUG: la lógica de overlap está incompleta. Solo compara check_in
             # de las reservas existentes contra el check_in nuevo. Si una
@@ -42,12 +42,17 @@ def find_available_room(room_type: str, check_in: date, check_out: date) -> Room
                 .filter(
                     Booking.room_id == room.id,
                     Booking.status == "CONFIRMED",
-                    Booking.check_in == check_in,  # ← incompleto
+                    check_in < Booking.check_out,
+                    check_out > Booking.check_in,
                 )
+                .with_for_update(nowait=False)
                 .all()
             )
+
+            logger.info(conflicts)    
             if not conflicts:
                 return room
+        
         return None
 
 
@@ -98,9 +103,12 @@ def callback(ch, method, properties, body):
             properties=pika.BasicProperties(content_type="application/json"),
         )
         logger.info("Publicado %s para %s", routing_key, booking_id)
+        # confirmacion exitosa
+        ch.basic_ack(delivery_tag=method.delivery_tag)
     except Exception as exc:
         logger.error("Error procesando %s: %s", booking_id, exc)
-
+        # reintento en caso de eroor 
+        ch.basic_nack(delivery_tag=method.delivery_tag, requeue=True)
 
 def main() -> None:
     init_db()
@@ -118,7 +126,7 @@ def main() -> None:
     channel.basic_consume(
         queue=result.method.queue,
         on_message_callback=callback,
-        auto_ack=True,
+        auto_ack=False,
     )
     logger.info("availability-service esperando booking.requested...")
     channel.start_consuming()

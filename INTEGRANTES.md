@@ -13,7 +13,7 @@
 
 - **Nombre completo: Jesus Manuel Ruiz Fuentes**
 - **Matrícula: 195116-8**
-- **Correo: jeshua0423@gmail.com**
+- **Correo: 195116@iberopuebla.mx**
 - **Usuario de Git que va a usar para sus commits: ManuelRuizJ**
 
 ---
@@ -24,19 +24,19 @@
 
 | Bug / Tarea | Responsable principal | Apoyo |
 |---|---|---|
-| B1 — routing key en booking-api | | |
-| B2 — manejo de error en publish | | |
-| B3 — auto_ack en availability-service | | |
-| B4 — overlap de fechas | | |
-| B5 — race condition con `with_for_update()` | | |
-| B6 — credenciales hardcodeadas | | |
-| B7 — idempotencia en payment-service | | |
-| `notification-service` (TODOs) | | |
-| `notification-service` en docker-compose | | |
-| Capturas de RabbitMQ | | |
-| Logs end-to-end | | |
-| `DECISIONES.md` | | |
-| `PROMPTS.md` | | |
+| B1 — routing key en booking-api |ManuelRuizJ| |
+| B2 — manejo de error en publish |InigoQD| |
+| B3 — auto_ack en availability-service |ManuelRuizJ| |
+| B4 — overlap de fechas |InigoQD| |
+| B5 — race condition con `with_for_update()` |InigoQD| |
+| B6 — credenciales hardcodeadas |InigoQD| |
+| B7 — idempotencia en payment-service |ManuelRuizJ| |
+| `notification-service` (TODOs) |ManuelRuizJ| |
+| `notification-service` en docker-compose |ManuelRuizJ| |
+| Capturas de RabbitMQ |ManuelRuizJ|InigoQD|
+| Logs end-to-end |InigoQD| |
+| `DECISIONES.md` |InigoQD|ManuelRuizJ|
+| `PROMPTS.md` |ManuelRuizJ| |
 | (otro) | | |
 
 ---
@@ -47,6 +47,7 @@
 
 ### Lo que hizo Integrante 1
 
+Me correspondió la creación del repositorio con los colaboradores, además de la corrección de los bugs B2, B4, B5 y B6. También me encargue de capturar los logs del flujo end-to-end exitoso y escribir el resumen de decisiones en `DECISIONES.md`.
 
 ### Lo que hizo Integrante 2
 
@@ -55,4 +56,4 @@
 
 ## Notas sobre el trabajo en pareja
 
-(Opcional) ¿Hubo algo difícil de coordinar? ¿Mejoras al flujo de trabajo en pareja para la próxima vez?
+La unida dificultad que se presnetó fue el poder trabajar en las mismas horas, ya que nuestra disponibilidad era distinta, sin embargo; consideramos que hubo una buena organización y se trabajo de manera adecuada de manera asincrona, se cumplió la división de tareas y apoyo en las tareas que lo requirieron.
