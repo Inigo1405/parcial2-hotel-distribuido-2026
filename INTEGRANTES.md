@@ -33,10 +33,10 @@
 | B7 — idempotencia en payment-service |ManuelRuizJ| |
 | `notification-service` (TODOs) |ManuelRuizJ| |
 | `notification-service` en docker-compose |ManuelRuizJ| |
-| Capturas de RabbitMQ | | |
-| Logs end-to-end | | |
-| `DECISIONES.md` | | |
-| `PROMPTS.md` | | |
+| Capturas de RabbitMQ |ManuelRuizJ|InigoQD|
+| Logs end-to-end |InigoQD| |
+| `DECISIONES.md` |InigoQD|ManuelRuizJ|
+| `PROMPTS.md` |ManuelRuizJ| |
 | (otro) | | |
 
 ---
