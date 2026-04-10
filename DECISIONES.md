@@ -78,6 +78,11 @@ Manejo de errores genericos con el callback captura cualquier excepcion, loguea 
 ### B5 — Race condition con `with_for_update()`
 
 ### B7 — Idempotencia
+**Qué encontré:**
+
+**Cómo lo arreglé:**
+
+**Por qué esto era un problema:**
 
 ---
 
