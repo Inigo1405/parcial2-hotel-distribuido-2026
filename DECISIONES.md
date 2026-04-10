@@ -79,10 +79,13 @@ Manejo de errores genericos con el callback captura cualquier excepcion, loguea 
 
 ### B7 — Idempotencia
 **Qué encontré:**
+El servicio de pagon no tenia maneras d e saber si un mimso evento de reserva confirmada ya lo habia reservado, si rabbitmq entregaba el mensjae 2 veces entonces el sistema cobraba 2 veces sin que este ko supiera, en la db no habia ningun registro que nos permitiera detectar que esa reservacion ya habia sido atendio
 
 **Cómo lo arreglé:**
+Se creo una nueva tabla en postgres llamada processed_events donde se guardo el booking_id cada ves que se procesa el pago, antes del cobro se pregunta si ese booking_id ya existe en la tabla. Si ya esta significa que el evento ya se proceso y entoences se salta y le digo a rabbitmq que todo esta bien, si no existe se incerte el booking_id, se hace el cobro y se guarda el pago
 
 **Por qué esto era un problema:**
+Rabbitmq puede reenviar el mensaje cuando un consumido falla antes de cornfirmar la recepcion, sin indepondencia ese doble envio significa doble cobro, con la tabla se evita ese riesgo y el sistema se vuelve tolerante a fallos
 
 ---
 

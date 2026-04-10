@@ -60,7 +60,7 @@ async def process_event(payload: dict) -> tuple[bool, str]:
                     status="COMPLETED" if success else "FAILED",
                 )
             )
-
+            
             if not success:
                 await session.rollback()
                 logger.warning("Pago fallido para %s, no se marca como procesado", booking_id)
