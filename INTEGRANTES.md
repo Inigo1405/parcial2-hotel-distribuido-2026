@@ -47,6 +47,7 @@
 
 ### Lo que hizo Integrante 1
 
+Me correspondió la creación del repositorio con los colaboradores, además de la corrección de los bugs B2, B4, B5 y B6. También me encargue de capturar los logs del flujo end-to-end exitoso y escribir el resumen de decisiones en `DECISIONES.md`.
 
 ### Lo que hizo Integrante 2
 
@@ -55,4 +56,4 @@
 
 ## Notas sobre el trabajo en pareja
 
-(Opcional) ¿Hubo algo difícil de coordinar? ¿Mejoras al flujo de trabajo en pareja para la próxima vez?
+La unida dificultad que se presnetó fue el poder trabajar en las mismas horas, ya que nuestra disponibilidad era distinta, sin embargo; consideramos que hubo una buena organización y se trabajo de manera adecuada de manera asincrona, se cumplió la división de tareas y apoyo en las tareas que lo requirieron.
