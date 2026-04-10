@@ -28,7 +28,7 @@
 | B2 — manejo de error en publish |InigoQD| |
 | B3 — auto_ack en availability-service |ManuelRuizJ| |
 | B4 — overlap de fechas |InigoQD| |
-| B5 — race condition con `with_for_update()` | | |
+| B5 — race condition con `with_for_update()` |InigoQD| |
 | B6 — credenciales hardcodeadas |InigoQD| |
 | B7 — idempotencia en payment-service |ManuelRuizJ| |
 | `notification-service` (TODOs) |ManuelRuizJ| |
