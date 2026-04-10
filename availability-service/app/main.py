@@ -42,12 +42,17 @@ def find_available_room(room_type: str, check_in: date, check_out: date) -> Room
                 .filter(
                     Booking.room_id == room.id,
                     Booking.status == "CONFIRMED",
-                    Booking.check_in == check_in,  # ← incompleto
+                    check_in < Booking.check_out,
+                    check_out > Booking.check_in,
                 )
+                .with_for_update(nowait=False)
                 .all()
             )
+
+            logger.info(conflicts)    
             if not conflicts:
                 return room
+        
         return None
 
 
