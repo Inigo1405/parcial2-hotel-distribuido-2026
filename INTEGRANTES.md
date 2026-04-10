@@ -50,6 +50,7 @@
 Me correspondió la creación del repositorio con los colaboradores, además de la corrección de los bugs B2, B4, B5 y B6. También me encargue de capturar los logs del flujo end-to-end exitoso y escribir el resumen de decisiones en `DECISIONES.md`.
 
 ### Lo que hizo Integrante 2
+Yo me encargue de los bugs B1, B3 y B7, ademas de completar todo el notification-service (TODOs y docker-compose). Tambien tome las capturas de RabbitMQ y apoye en la documentacion de DECISIONES.md y en las pruebas del flujo completo.
 
 
 ---
