@@ -22,7 +22,7 @@ def find_available_room(room_type: str, check_in: date, check_out: date) -> Room
     Devuelve la primera habitación disponible o None si ninguna lo está.
     """
     with SessionLocal() as session:
-        candidates = session.query(Room).filter(Room.room_type == room_type).all()
+        candidates = session.query(Room).filter(Room.room_type == room_type).with_for_update(nowait=False).all()
         for room in candidates:
             # BUG: la lógica de overlap está incompleta. Solo compara check_in
             # de las reservas existentes contra el check_in nuevo. Si una
