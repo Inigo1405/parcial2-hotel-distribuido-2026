@@ -54,7 +54,7 @@ El booking-api recibio la solicitud, la publico en RabbitMQ y respondio 202. Lue
 ## 4. Verificar B4 (overlap de fechas)
 
 
-## 3. Prueba de idempotencia (B7) – mensaje repetido
+## 3. Prueba de idempotencia B7 (mensaje repetido)
 # TODO
 
 
