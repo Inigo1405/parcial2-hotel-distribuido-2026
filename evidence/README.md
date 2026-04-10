@@ -50,3 +50,29 @@ curl -X POST http://localhost:8000/bookings \
   -H "Content-Type: application/json" \
   -d '{"guest": "Test", "room_type": "double", "check_in": "2026-05-01", "check_out": "2026-05-05"}'
 ```
+
+# Ejemplos de curl
+
+## 1. Reserva exitosa (flujo normal)
+![alt text](image-1.png)
+
+
+El booking-api recibio la solicitud, la publico en RabbitMQ y respondio 202. Luego availability-service confirmo la reserva, payment-service cobro (exitoso) y notification-service logueo el aviso. El flujo completo funciona.
+
+
+## 2. Prueba de B2 (RabbitMQ caido)
+![alt text](image.png)
+
+
+## 4. Verificar B4 (overlap de fechas)
+
+
+## 3. Prueba de idempotencia B7 (mensaje repetido)
+# TODO
+
+
+## 4. COnsultar estado de una reserva
+
+
+## 5. Verificar B5 (race condition)
+![alt text](image-4.png)
