@@ -30,7 +30,7 @@
 | B4 — overlap de fechas |InigoQD| |
 | B5 — race condition con `with_for_update()` | | |
 | B6 — credenciales hardcodeadas |InigoQD| |
-| B7 — idempotencia en payment-service | | |
+| B7 — idempotencia en payment-service |ManuelRuizJ| |
 | `notification-service` (TODOs) |ManuelRuizJ| |
 | `notification-service` en docker-compose |ManuelRuizJ| |
 | Capturas de RabbitMQ | | |
