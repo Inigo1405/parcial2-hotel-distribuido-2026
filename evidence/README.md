@@ -17,6 +17,19 @@ Suban aquí los siguientes archivos. Sin esta evidencia se pierden puntos de la 
 ### 3. Ejemplo de curl
 - `curl-ejemplos.md` — los comandos curl que usaron para probar, con sus respuestas
 
+
+#### b5
+`curl -X POST http://localhost:8000/bookings -H "Content-Type: application/json" -d '{"guest": "A", "room_type": "suite", "check_in": "2026-06-01", "check_out": "2026-06-03"}' & curl -X POST http://localhost:8000/bookings -H "Content-Type: application/json" -d '{"guest": "B", "room_type": "suite", "check_in": "2026-06-01", "check_out": "2026-06-03"}' & wait`
+- 2026-04-09 22:44:11 2026-04-10 04:44:11,954 availability-service INFO availability-service esperando booking.requested...
+- 2026-04-09 22:44:28 2026-04-10 04:44:28,687 availability-service INFO Recibido booking.requested: d1008eb5-f637-4b5d-b224-58f7c93810f3
+- 2026-04-09 22:44:28 2026-04-10 04:44:28,693 availability-service INFO []
+- 2026-04-09 22:44:28 2026-04-10 04:44:28,700 availability-service INFO Reserva d1008eb5-f637-4b5d-b224-58f7c93810f3 confirmada en habitación 301
+- 2026-04-09 22:44:28 2026-04-10 04:44:28,700 availability-service INFO Publicado booking.confirmed para d1008eb5-f637-4b5d-b224-58f7c93810f3
+- 2026-04-09 22:44:28 2026-04-10 04:44:28,701 availability-service INFO Recibido booking.requested: 61403c94-a712-410e-b94b-64cef030571b
+- 2026-04-09 22:44:28 2026-04-10 04:44:28,703 availability-service INFO [<app.models.Booking object at 0x77392f923620>]
+- 2026-04-09 22:44:28 2026-04-10 04:44:28,703 availability-service INFO Reserva 61403c94-a712-410e-b94b-64cef030571b rechazada: sin habitaciones suite
+- 2026-04-09 22:44:28 2026-04-10 04:44:28,704 availability-service INFO Publicado booking.rejected para 61403c94-a712-410e-b94b-64cef030571b
+
 ## Opcionales (suman si están)
 
 - `tests-output.txt` — salida de pytest si agregaron tests
