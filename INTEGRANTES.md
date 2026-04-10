@@ -13,7 +13,7 @@
 
 - **Nombre completo: Jesus Manuel Ruiz Fuentes**
 - **Matrícula: 195116-8**
-- **Correo: jeshua0423@gmail.com**
+- **Correo: 195116@iberopuebla.mx**
 - **Usuario de Git que va a usar para sus commits: ManuelRuizJ**
 
 ---
@@ -24,15 +24,15 @@
 
 | Bug / Tarea | Responsable principal | Apoyo |
 |---|---|---|
-| B1 — routing key en booking-api | | |
-| B2 — manejo de error en publish | | |
-| B3 — auto_ack en availability-service | | |
-| B4 — overlap de fechas | | |
+| B1 — routing key en booking-api |ManuelRuizJ| |
+| B2 — manejo de error en publish |InigoQD| |
+| B3 — auto_ack en availability-service |ManuelRuizJ| |
+| B4 — overlap de fechas |InigoQD| |
 | B5 — race condition con `with_for_update()` | | |
-| B6 — credenciales hardcodeadas | | |
+| B6 — credenciales hardcodeadas |InigoQD| |
 | B7 — idempotencia en payment-service | | |
-| `notification-service` (TODOs) | | |
-| `notification-service` en docker-compose | | |
+| `notification-service` (TODOs) |ManuelRuizJ| |
+| `notification-service` en docker-compose |ManuelRuizJ| |
 | Capturas de RabbitMQ | | |
 | Logs end-to-end | | |
 | `DECISIONES.md` | | |

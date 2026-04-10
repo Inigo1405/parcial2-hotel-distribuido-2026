@@ -7,25 +7,19 @@
 # Mira availability-service/app/db.py para ver cómo se construye la URL
 # leyendo POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_DB, etc. con os.getenv().
 # Las variables ya están en .env.example.
-DATABASE_URL = "postgresql+asyncpg://hotel_user:hotel_pass@postgres:5432/hotel_db"
+import os
 
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
-from sqlalchemy.orm import DeclarativeBase
-from sqlalchemy import Integer, String
-from sqlalchemy.orm import Mapped, mapped_column
 
+from .models import Base, Payment
 
-class Base(DeclarativeBase):
-    pass
+_PG_USER = os.getenv("POSTGRES_USER")
+_PG_PASSWORD = os.getenv("POSTGRES_PASSWORD")
+_PG_DB = os.getenv("POSTGRES_DB")
+_PG_HOST = os.getenv("POSTGRES_HOST")
+_PG_PORT = os.getenv("POSTGRES_PORT")
 
-
-class Payment(Base):
-    __tablename__ = "payments"
-
-    id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    booking_id: Mapped[str] = mapped_column(String(64), nullable=False)
-    amount: Mapped[int] = mapped_column(Integer, nullable=False)
-    status: Mapped[str] = mapped_column(String(20), nullable=False)
+DATABASE_URL = f"postgresql+asyncpg://{_PG_USER}:{_PG_PASSWORD}@{_PG_HOST}:{_PG_PORT}/{_PG_DB}"
 
 
 engine = create_async_engine(DATABASE_URL, echo=False)

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 import logging
-
+import asyncio
 import aio_pika
 
 from .config import settings
@@ -25,5 +25,6 @@ async def publish_booking(payload: dict) -> None:
             content_type="application/json",
         )
         # BUG: revisa el routing key. El availability-service espera otro nombre.
-        await exchange.publish(message, routing_key="booking.create")
+        await exchange.publish(message, routing_key="booking.requested")
+        await asyncio.sleep(0.1)
         logger.info("Evento publicado: booking_id=%s", payload.get("booking_id"))
